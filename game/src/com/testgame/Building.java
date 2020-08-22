@@ -10,21 +10,21 @@ public class Building {
     public final String getSign() {
         switch (buildingType) {
             case FARM:
-                return "🌽";
+                return "F";
             case WALL:
-                return "🟧";
+                return "W";
             case ARMORY:
-                return "💪";
+                return "A";
             case ARCHER_TOWER:
-                return "🏹";
+                return "T";
             case CASTLE:
-                return "👑";
+                return "C";
             case PYRAMID:
-                return "🔺";
+                return "P";
             case TEMPLE:
-                return "⛪";
+                return "S";
             case VILLAGE:
-                return "🏠";
+                return "V";
             default:
                 return "";
         }

@@ -16,13 +16,13 @@ public class Menu {
 
         System.out.println("\n".repeat(5));
         System.out.println("==".repeat(20));
-        System.out.println("⌛ Turn: " + board.getTurn() + " | 🤗 Current: " + board.getCurrentPlayer().getName());
+        System.out.println("Turn: " + board.getTurn() + " | Current: " + board.getCurrentPlayer().getName());
         System.out.println("==".repeat(20));
-        System.out.print("💰 Gold: " + currentPlayer.getGold() + " (+" + currentPlayer.getGoldIncrease() + ")");
-        System.out.print(" | 💥 Morale: " + currentPlayer.getMorale());
+        System.out.print("Gold: " + currentPlayer.getGold() + " (+" + currentPlayer.getGoldIncrease() + ")");
+        System.out.print(" | Morale: " + currentPlayer.getMorale());
         System.out.println();
-        System.out.print("💥 Army: " + currentPlayer.getArmy());
-        System.out.print(" | 🏰 Defence: " + currentPlayer.getDefence());
+        System.out.print("Army: " + currentPlayer.getArmy());
+        System.out.print(" | Defence: " + currentPlayer.getDefence());
         System.out.println();
         System.out.println("==".repeat(20));
     }

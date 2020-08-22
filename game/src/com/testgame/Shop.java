@@ -5,15 +5,16 @@ import java.util.Scanner;
 public class Shop {
     public void displayShopMenu() {
         System.out.println("==".repeat(20));
-        System.out.println("0 ⌛ Nothing, wait...");
-        System.out.println("1 👑 Castle | +5 Gold/turn | -30 GOLD");
-        System.out.println("2 🏠 Village | +1 Gold/turn | -8 GOLD");
-        System.out.println("3 🔺 Pyramid | +5 Morale | -15 GOLD");
-        System.out.println("4 ⛪ Temple | +1 Morale | -5 GOLD");
-        System.out.println("5 💪 Armory | +5 Army | -15 GOLD");
-        System.out.println("6 🌽 Farm | +1 Army | -4 GOLD");
-        System.out.println("7 🏹 Archer Tower | +5 Defence | -10 GOLD");
-        System.out.println("8 🟧 Wall | +1 Defence | -4 GOLD");
+        System.out.println("0 Nothing, wait...");
+        System.out.println("1 C Castle | +5 Gold/turn | -30 GOLD");
+        System.out.println("2 V Village | +1 Gold/turn | -8 GOLD");
+        System.out.println("3 P Pyramid | +5 Morale | -15 GOLD");
+        System.out.println("4 S Temple | +1 Morale | -5 GOLD");
+        System.out.println("5 A Armory | +5 Army | -15 GOLD");
+        System.out.println("6 F Farm | +1 Army | -4 GOLD");
+        System.out.println("7 T Archer Tower | +5 Defence | -10 GOLD");
+        System.out.println("8 W Wall | +1 Defence | -4 GOLD");
+        System.out.println("Pick option 0-8: ");
     }
 
     public boolean buy(Player player, int price) {
@@ -21,6 +22,7 @@ public class Shop {
             player.subtractGold(price);
             return true;
         }
+        System.out.println("Not enough gold...");
         return false;
     }
 

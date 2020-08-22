@@ -23,7 +23,7 @@ public class Board {
                 Building building = player.getBuildings().get(i);
                 System.out.printf("%s ", building.getSign());
             } else {
-                System.out.print("🌵 ");
+                System.out.print(". ");
             }
 
             if (i > 0 && (i+1) % totalWidth == 0) {
@@ -34,7 +34,7 @@ public class Board {
 
     public void drawBoard() {
         drawPlayer(player1);
-        System.out.println("⛰ ".repeat(totalWidth));
+        System.out.println("^ ".repeat(totalWidth));
         drawPlayer(player2);
     }
 

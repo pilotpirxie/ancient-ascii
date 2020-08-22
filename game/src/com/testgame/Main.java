@@ -1,18 +1,31 @@
 package com.testgame;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        Player player1 = new Player("John");
-        Player player2 = new Player("Doe");
-        Board board = new Board(3, 3, player1, player2);
+        System.out.println("Welcome to Ancient Strategy Game!");
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("First player nickname:");
+        while (!scanner.hasNextLine()) {
+            scanner.next();
+        }
+        Player player1 = new Player(scanner.nextLine());
+
+        System.out.println("Second player nickname:");
+        while (!scanner.hasNextLine()) {
+            scanner.next();
+        }
+        Player player2 = new Player(scanner.nextLine());
+
+        Board board = new Board(5, 5, player1, player2);
         Menu menu = new Menu(board, player1, player2);
         Battle battle = new Battle(player1, player2);
         Shop shop = new Shop();
-
-        System.out.println("Welcome to Ancient Strategy Game!");
-
+        
         while (board.isEconomyState()) {
             menu.displayStats();
             board.drawBoard();

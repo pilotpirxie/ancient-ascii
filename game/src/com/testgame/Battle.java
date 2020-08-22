@@ -12,7 +12,7 @@ public class Battle {
     public void displayStats() {
         System.out.println("\n".repeat(5));
         System.out.println("==".repeat(20));
-        System.out.println("🤗 " + player1.getName() + " vs 🤗 " + player2.getName());
+        System.out.println( player1.getName() + " vs " + player2.getName());
         System.out.println("==".repeat(20));
         displayPlayerBattleStats(player1);
         System.out.println("==".repeat(20));
@@ -21,10 +21,10 @@ public class Battle {
     }
 
     private void displayPlayerBattleStats(Player player) {
-        System.out.println("🤗 " + player.getName());
-        System.out.println("💥 Morale: " + player.getMorale());
-        System.out.println("💪 Army: " + player.getArmy() + " (x" + player.getMoraleBonusForArmy() + " morale bonus) = " + player.getTotalArmy());
-        System.out.println("🏰 Defence: " + player.getDefence() + " (x" + player.getMoraleBonusForDefence() + " morale bonus) = " + player.getTotalDefence());
+        System.out.println(player.getName());
+        System.out.println("Morale: " + player.getMorale());
+        System.out.println("Army: " + player.getArmy() + " (x" + player.getMoraleBonusForArmy() + " morale bonus) = " + player.getTotalArmy());
+        System.out.println("Defence: " + player.getDefence() + " (x" + player.getMoraleBonusForDefence() + " morale bonus) = " + player.getTotalDefence());
     }
 
     public Player fight() {
@@ -36,15 +36,15 @@ public class Battle {
         while (player1Defence > 0 && player2Defence > 0) {
             if (isFirstPlayer) {
                 player2Defence -= player1.getTotalArmy();
-                System.out.println(player1.getName() + " is attacking with " + player1.getTotalArmy() + ". " + player2.getName() + " has " + player2Defence + " remaining.");
+                System.out.println(player1.getName() + " is attacking with " + player1.getTotalArmy() + ". " + player2.getName() + " has " + player2Defence + " defence remaining.");
             } else {
                 player1Defence -= player2.getTotalArmy();
-                System.out.println(player2.getName() + " is attacking with " + player2.getTotalArmy() + ". " + player1.getName() + " has " + player1Defence + " remaining.");
+                System.out.println(player2.getName() + " is attacking with " + player2.getTotalArmy() + ". " + player1.getName() + " has " + player1Defence + " defence remaining.");
             }
 
             isFirstPlayer = !isFirstPlayer;
         }
 
-        return player1;
+        return player1Defence > player2Defence ? player1 : player2;
     }
 }
