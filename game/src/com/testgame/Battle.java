@@ -30,13 +30,13 @@ public class Battle {
     public Player fight() {
         System.out.println("==".repeat(20));
         boolean isFirstPlayer = true;
-        int player1Defence = player1.getTotalDefence();
-        int player2Defence = player2.getTotalDefence();
+        int player1Defence = player1.getTotalArmy() + player1.getTotalDefence();
+        int player2Defence = player2.getTotalArmy() + player2.getTotalDefence();
 
-        while (player1Defence > 0 && player2Defence > 0) {
+        while (player1Defence >= 0 && player2Defence >= 0) {
             if (isFirstPlayer) {
                 player2Defence -= player1.getTotalArmy();
-                System.out.println(player1.getName() + " is attacking with " + player1.getTotalArmy() + ". " + player2.getName() + " has " + player2Defence + " defence remaining.");
+                System.out.println(player1.getName() + " is attacking with " + player1.getTotalArmy() + ". " + player2.getName() + " has " + player2Defence  + " defence remaining.");
             } else {
                 player1Defence -= player2.getTotalArmy();
                 System.out.println(player2.getName() + " is attacking with " + player2.getTotalArmy() + ". " + player1.getName() + " has " + player1Defence + " defence remaining.");

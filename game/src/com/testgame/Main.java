@@ -5,9 +5,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Ancient Strategy Game!");
-
+       // System.out.println("Welcome to Ancient Strategy Game!");
+        StartLabel label = new StartLabel();
+        label.CreateLabel();
+        System.out.println("\u001b[33m");
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose mode: ");
 
         System.out.println("First player nickname:");
         while (!scanner.hasNextLine()) {
@@ -44,4 +48,6 @@ public class Main {
         Player winner = battle.fight();
         System.out.println(winner.getName() + " won the game!");
     }
+
+
 }
