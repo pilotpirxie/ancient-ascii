@@ -1,11 +1,9 @@
 package com.testgame;
 
 public class Building {
-    private final PlayerType playerType;
     private final BuildingType buildingType;
 
-    public Building(PlayerType playerType, BuildingType buildingType) {
-        this.playerType = playerType;
+    public Building(BuildingType buildingType) {
         this.buildingType = buildingType;
     }
 
@@ -30,9 +28,5 @@ public class Building {
             default:
                 return "";
         }
-    }
-
-    public final PlayerType getOwner() {
-        return playerType;
     }
 }

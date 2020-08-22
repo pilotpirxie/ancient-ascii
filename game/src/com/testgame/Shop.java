@@ -6,8 +6,8 @@ public class Shop {
     public void displayShopMenu() {
         System.out.println("==".repeat(20));
         System.out.println("0 ⌛ Nothing, wait...");
-        System.out.println("1 👑 Castle | +5 Gold/turn | -10 GOLD");
-        System.out.println("2 🏠 Village | +1 Gold/turn | -3 GOLD");
+        System.out.println("1 👑 Castle | +5 Gold/turn | -30 GOLD");
+        System.out.println("2 🏠 Village | +1 Gold/turn | -8 GOLD");
         System.out.println("3 🔺 Pyramid | +5 Morale | -15 GOLD");
         System.out.println("4 ⛪ Temple | +1 Morale | -5 GOLD");
         System.out.println("5 💪 Armory | +5 Army | -15 GOLD");
@@ -18,7 +18,7 @@ public class Shop {
 
     public boolean buy(Player player, int price) {
         if (player.getGold() >= price) {
-            player.substractGold(price);
+            player.subtractGold(price);
             return true;
         }
         return false;
@@ -46,13 +46,13 @@ public class Shop {
             case 0:
                 return null;
             case 1:
-                if (buy(player, 10)) {
+                if (buy(player, 30)) {
                     player.addGoldIncrease(5);
                     return BuildingType.CASTLE;
                 }
                 return null;
             case 2:
-                if (buy(player, 3)) {
+                if (buy(player, 8)) {
                     player.addGoldIncrease(1);
                     return BuildingType.VILLAGE;
                 }

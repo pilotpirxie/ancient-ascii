@@ -1,15 +1,32 @@
 package com.testgame;
 
+import java.util.ArrayList;
+
 public class Player {
-    private final PlayerType playerType;
-    private int gold;
+    private int gold = 15;
     private int goldIncrease = 1;
     private int morale;
     private int army;
     private int defence;
+    private String name;
 
-    public Player(PlayerType playerType) {
-        this.playerType = playerType;
+    private final ArrayList<Building> buildings;
+
+    public Player(String name) {
+        this.name = name;
+        buildings = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Building> getBuildings() {
+        return buildings;
+    }
+
+    public void addBuilding(Building building) {
+        buildings.add(building);
     }
 
     public int getGold() {
@@ -20,7 +37,7 @@ public class Player {
         this.gold = gold + goldIncrease;
     }
 
-    public void substractGold(int goldToDecrease) {
+    public void subtractGold(int goldToDecrease) {
         this.gold = gold - goldToDecrease;
     }
 
@@ -56,7 +73,21 @@ public class Player {
         this.defence = defence + addDefence;
     }
 
-    public PlayerType getPlayerType() {
-        return playerType;
+    public float getMoraleBonusForArmy() {
+        return getArmy() > 0 ? (1 + (getMorale() / getArmy()) * 0.5f) : 1;
+    }
+
+    public float getMoraleBonusForDefence() {
+        return getDefence() > 0 ? (1 + (getMorale() / getDefence()) * 0.5f) : 1;
+    }
+
+    public int getTotalArmy() {
+        int finalArmy = (int) (getArmy() * getMoraleBonusForArmy());
+        return finalArmy;
+    }
+
+    public int getTotalDefence() {
+        int finalDefence = (int) (getDefence() * getMoraleBonusForDefence());
+        return finalDefence;
     }
 }

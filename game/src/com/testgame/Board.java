@@ -1,32 +1,27 @@
 package com.testgame;
 
-import java.util.ArrayList;
-
 public class Board {
     private final int totalWidth;
     private final int singlePlayerHeight;
-
-    private PlayerType currentPlayerTypeTurn = PlayerType.PLAYER1;
+    private Player currentPlayer;
+    private Player player1;
+    private Player player2;
     private int turn = 0;
 
-    private final ArrayList<Building> buildings;
-
-    public Board(int totalWidth, int singlePlayerHeight) {
+    public Board(int totalWidth, int singlePlayerHeight, Player player1, Player player2) {
         this.totalWidth = totalWidth;
         this.singlePlayerHeight = singlePlayerHeight;
 
-        buildings = new ArrayList<>();
+        currentPlayer = player1;
+        this.player1 = player1;
+        this.player2 = player2;
     }
 
-    private void drawPlayer(PlayerType playerType) {
+    private void drawPlayer(Player player) {
         for (int i = 0; i < singlePlayerHeight * totalWidth; i++) {
-            if (i < buildings.size()) {
-                Building building = buildings.get(i);
-                if (building.getOwner() == playerType) {
-                    System.out.printf("%s ", building.getSign());
-                } else {
-                    System.out.print("🌵 ");
-                }
+            if (i < player.getBuildings().size()) {
+                Building building = player.getBuildings().get(i);
+                System.out.printf("%s ", building.getSign());
             } else {
                 System.out.print("🌵 ");
             }
@@ -38,46 +33,37 @@ public class Board {
     }
 
     public void drawBoard() {
-        drawPlayer(PlayerType.PLAYER1);
+        drawPlayer(player1);
         System.out.println("⛰ ".repeat(totalWidth));
-        drawPlayer(PlayerType.PLAYER2);
+        drawPlayer(player2);
     }
 
-    public void addBuilding(BuildingType buildingType, PlayerType playerType) {
-        if (getPlayerBuildingsCount(playerType) < totalWidth * singlePlayerHeight) {
-            buildings.add(new Building(playerType, buildingType));
+    public void addBuilding(BuildingType buildingType, Player player) {
+        if (player.getBuildings().size() < totalWidth * singlePlayerHeight) {
+            player.addBuilding(new Building(buildingType));
         }
     }
 
-    public int getPlayerBuildingsCount(PlayerType playerType) {
-        int total = 0;
-        for (Building building : buildings) {
-            if (building.getOwner() == playerType) {
-                total++;
-            }
-        }
-
-        return total;
-    }
-
-    public void endTurn() {
-        if (currentPlayerTypeTurn == PlayerType.PLAYER1) {
-            currentPlayerTypeTurn = PlayerType.PLAYER2;
+    public void togglePlayer() {
+        if (currentPlayer == player1) {
+            currentPlayer = player2;
         } else {
-            currentPlayerTypeTurn = PlayerType.PLAYER1;
+            currentPlayer = player1;
+            turn++;
+            player1.addGold();
+            player2.addGold();
         }
-        turn++;
     }
 
-    public boolean isGamePlayable() {
+    public boolean isEconomyState() {
         int maxBuildingsPerPlayer = totalWidth * singlePlayerHeight;
 
-        return getPlayerBuildingsCount(PlayerType.PLAYER1) < maxBuildingsPerPlayer
-                && getPlayerBuildingsCount(PlayerType.PLAYER2) < maxBuildingsPerPlayer;
+        return player1.getBuildings().size() < maxBuildingsPerPlayer
+                && player2.getBuildings().size() < maxBuildingsPerPlayer;
     }
 
-    public PlayerType getCurrentPlayerType() {
-        return currentPlayerTypeTurn;
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 
     public int getTurn() {

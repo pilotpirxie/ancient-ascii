@@ -12,16 +12,11 @@ public class Menu {
     }
 
     public void displayStats() {
-        Player currentPlayer;
-        if (board.getCurrentPlayerType() == player1.getPlayerType()) {
-            currentPlayer = player1;
-        } else {
-            currentPlayer = player2;
-        }
+        Player currentPlayer = board.getCurrentPlayer();
 
         System.out.println("\n".repeat(5));
         System.out.println("==".repeat(20));
-        System.out.println("⌛ Turn: " + board.getTurn() + " | 🤗 Current: " + board.getCurrentPlayerType());
+        System.out.println("⌛ Turn: " + board.getTurn() + " | 🤗 Current: " + board.getCurrentPlayer().getName());
         System.out.println("==".repeat(20));
         System.out.print("💰 Gold: " + currentPlayer.getGold() + " (+" + currentPlayer.getGoldIncrease() + ")");
         System.out.print(" | 💥 Morale: " + currentPlayer.getMorale());
