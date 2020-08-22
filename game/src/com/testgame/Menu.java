@@ -1,5 +1,7 @@
 package com.testgame;
 
+import java.io.IOException;
+
 public class Menu {
    private final Board board;
    private final Player player1;
