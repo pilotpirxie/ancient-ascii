@@ -1,11 +1,11 @@
 package com.testgame;
 
 public class Building {
-    private Owner owner;
-    private BuildingType buildingType;
+    private final PlayerType playerType;
+    private final BuildingType buildingType;
 
-    public Building(Owner owner, BuildingType buildingType) {
-        this.owner = owner;
+    public Building(PlayerType playerType, BuildingType buildingType) {
+        this.playerType = playerType;
         this.buildingType = buildingType;
     }
 
@@ -32,11 +32,7 @@ public class Building {
         }
     }
 
-    public final BuildingType getBuildingType() {
-        return buildingType;
-    }
-
-    public final Owner getOwner() {
-        return owner;
+    public final PlayerType getOwner() {
+        return playerType;
     }
 }

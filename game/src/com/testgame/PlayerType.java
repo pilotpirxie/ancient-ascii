@@ -1,6 +1,6 @@
 package com.testgame;
 
-public enum Owner {
+public enum PlayerType {
     PLAYER1,
     PLAYER2
 }
