@@ -40,7 +40,7 @@ public class Shop {
                 "    ,'__/_ ___ _  `.\n" +
                 "  ,'_  /___ __ _ __ `.\n" +
                 " '-.._/___...-\"-.-..__`. ");
-        System.out.println("        +5 Morale/turn ");
+        System.out.println("        +5 Morale ");
         System.out.println("==".repeat(20));
         System.out.println("4 TEMPLE - 5 GOLD");
         System.out.println("                  /\\\n" +
@@ -49,7 +49,7 @@ public class Shop {
                 "    |  |         |   (    )\n" +
                 "    |  |_________|   |    |\n" +
                 "    |                |    |");
-        System.out.println("        +1 Morale/turn ");
+        System.out.println("        +1 Morale ");
         System.out.println("==".repeat(20));
         System.out.println("5 ARMORY - 15 GOLD");
         System.out.println(" _   |~  _\n" +
@@ -57,7 +57,7 @@ public class Shop {
                 "|'|\"\"`\"\"|'|\n" +
                 "| | /^\\ | |\n" +
                 "|_|_|I|_|_|");
-        System.out.println("        +5 Army/turn ");
+        System.out.println("        +5 Army ");
         System.out.println("==".repeat(20));
         System.out.println("6 FARM - 4 GOLD");
 
@@ -69,7 +69,7 @@ public class Shop {
                 "                      |    |==|==|    |  |\n" +
                 "  |---|---|---|---|---|    |--|--|    |  |\n" +
                 "  |---|---|---|---|---|    |==|==|    |  |");
-        System.out.println("        +1 Army/turn ");
+        System.out.println("        +1 Army ");
         System.out.println("==".repeat(20));
         System.out.println("7 ARCHER TOWER - 10 GOLD");
         System.out.println("                    .. - ----.\n" +
@@ -86,7 +86,7 @@ public class Shop {
                 "                        |:.\n" +
                 "       ________________ J8:,          ______________a:f____" +
                 "");
-        System.out.println("        +5 Defence/turn ");
+        System.out.println("        +5 Defence ");
         System.out.println("==".repeat(20));
         System.out.println("8 WALL - 4 GOLD");
         System.out.println("_|___|___|___|___|___|___|___|___|___|___|___|___|___|\n" +
@@ -96,7 +96,7 @@ public class Shop {
                 "_|___|___|___|___|___|___|___|___|___|___|___|___|___|\n" +
                 "___|___|___|___|___|___|___|___|___|___|___|___|___|__\n" );
 
-        System.out.println("        +1 Defence/turn ");
+        System.out.println("        +1 Defence ");
         System.out.println("==".repeat(20));
         System.out.println("Pick option 0-8: ");
     }
