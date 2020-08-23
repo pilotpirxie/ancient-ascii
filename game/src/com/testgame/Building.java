@@ -17,10 +17,10 @@ public class Building {
                 return "A";
             case ARCHER_TOWER:
                 return "T";
-            case CASTLE:
-                return "C";
-            case PYRAMID:
+            case PALACE:
                 return "P";
+            case PYRAMID:
+                return "/\\";
             case TEMPLE:
                 return "S";
             case VILLAGE:

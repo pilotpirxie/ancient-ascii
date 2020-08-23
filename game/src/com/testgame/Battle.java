@@ -17,6 +17,7 @@ public class Battle {
         displayPlayerBattleStats(player1);
         System.out.println("==".repeat(20));
         displayPlayerBattleStats(player2);
+        System.out.println("==".repeat(20));
 
     }
 

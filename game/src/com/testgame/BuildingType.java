@@ -1,7 +1,7 @@
 package com.testgame;
 
 public enum BuildingType {
-    CASTLE,
+    PALACE,
     VILLAGE,
     PYRAMID,
     TEMPLE,
